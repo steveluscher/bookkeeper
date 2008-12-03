@@ -1,0 +1,35 @@
+EnsuresImmutabilityOf
+=====================
+
+There are many cases where a model attribute should not be changed once it's set. This plugin makes it dead simple.
+
+Example
+=======
+
+class Account < ActiveRecord::Base
+  ensures_immutability_of :username, :email
+end
+
+account = Account.create(:username => 'jgreen')
+...
+account.update(:username => 'jgreen')  # raises ActiveRecord::ImmutableAttributeError
+
+Entire models can be made immutable by passing the symbol :all to ensures_immutability_of
+
+class Account < ActiveRecord::Base
+  ensures_immutability_of :all
+end
+
+Collections can all be immutable as well (thanks to Dmitry Ratnikov on #rubyonrails)
+
+class Account  < ActiveRecord::Base
+  has_many :infos
+  ensures_immutability_of :username, :email, :infos   # note: this must come after the has_many declaration, otherwise
+                                                      # AR will overwrite the setter
+end
+
+account = Account.create(:username => 'wmoxam')
+account.infos = Info.find(:all, :conditions => ["id < ?", 3]
+account.infos =  Info.find(:all, :conditions => ["id > ?", 3]  # raises ActiveRecord::ImmutableAttributeError
+
+Copyright (c) 2007-2008 Wesley Moxam - Savvica Inc, released under the MIT license

@@ -1,0 +1,6 @@
+foo:
+  id: 1
+  text: this is some text
+bar:
+  id: 2
+  text: this is more text!

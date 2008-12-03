@@ -1,0 +1,19 @@
+= Bookkeeper -- A double-entry accounting system for Rails.
+
+Inspired by a {blog post}[http://www.cuppadev.co.uk/oldbrew/double-entry-accounting-in-rails/] written by James Urquhart.
+
+== Requirements
+
+Other than the dependencies listed in +bookkeeper.gemspec+, you will need:
+
+* Active merchant
+
+  Without support for PayPal MassPay IPNs::
+    +./script/plugin install git://github.com/Shopify/active_merchant.git+
+
+	With support for PayPal MassPay IPNs::
+    +./script/plugin install git://github.com/steveluscher/active_merchant.git+
+
+== License
+
+Bookkeeper is released under the MIT license.

@@ -1,0 +1,3 @@
+script/generate bookkeeper
+
+This will install the CreateBookkeeperTables migration in db/migrate
