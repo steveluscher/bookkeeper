@@ -17,11 +17,13 @@ module EnsuresImmutabilityOf
       configuration.update(attr_names.pop) if attr_names.last.is_a?(Hash)
 
       if(attr_names.include? :all)
-        model_instance = self.new
-        attr_names = []
-        attr_names |= self.column_names.reject { |name| !model_instance.respond_to?(name) }
-        attr_names |= self.reflect_on_all_associations.collect { |a| a.name.to_s }
-        attr_names |= self.reflect_on_all_aggregations.collect { |a| a.name.to_s }
+        begin
+          model_instance = self.new
+          attr_names = []
+          attr_names |= self.column_names.reject { |name| !model_instance.respond_to?(name) }
+          attr_names |= self.reflect_on_all_associations.collect { |a| a.name.to_s }
+          attr_names |= self.reflect_on_all_aggregations.collect { |a| a.name.to_s }
+        rescue ActiveRecord::StatementInvalid; end
       end
       
       attr_names.each do |attr_name|
