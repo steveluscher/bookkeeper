@@ -1,2 +1,2 @@
-class AssetType::USD < AssetType
+class AssetType::USD < Bookkeeper::AssetType
 end

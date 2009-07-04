@@ -1,2 +1,2 @@
-class AssetType::CAD < AssetType
+class Bookkeeper::AssetType::CAD < Bookkeeper::AssetType
 end

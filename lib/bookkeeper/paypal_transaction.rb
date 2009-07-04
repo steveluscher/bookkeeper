@@ -1,4 +1,4 @@
-class PaypalTransaction < ActiveRecord::Base
+class Bookkeeper::PaypalTransaction < ActiveRecord::Base
   include ActiveMerchant::Billing::Integrations
   
   serialize :notification, Paypal::Notification

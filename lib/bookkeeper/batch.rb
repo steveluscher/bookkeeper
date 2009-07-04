@@ -1,4 +1,4 @@
-class Batch < ActiveRecord::Base
+class Bookkeeper::Batch < ActiveRecord::Base
   has_many :journals
   
   def pay(payment_transaction)

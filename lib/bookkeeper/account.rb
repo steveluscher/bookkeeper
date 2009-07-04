@@ -1,4 +1,4 @@
-class Account < ActiveRecord::Base
+class Bookkeeper::Account < ActiveRecord::Base
   acts_as_tree
 
   has_many  :postings

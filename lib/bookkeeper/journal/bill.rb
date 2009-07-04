@@ -1,4 +1,4 @@
-class Journal::Bill < Journal
+class Bookkeeper::Journal::Bill < Bookkeeper::Journal
   has_many   :payments, :as => :payable, :class_name => '::Journal'
   belongs_to :creditor, :polymorphic => true
   

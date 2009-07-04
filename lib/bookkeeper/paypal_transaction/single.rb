@@ -1,4 +1,4 @@
-class PaypalTransaction::Single < PaypalTransaction
+class Bookkeeper::PaypalTransaction::Single < Bookkeeper::PaypalTransaction
   
   def to_postings
     gross = self.notification.amount.cents.to_f / 100

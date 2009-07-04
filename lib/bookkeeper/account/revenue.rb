@@ -1,3 +1,3 @@
-class Account::Revenue < Account
+class Bookkeeper::Account::Revenue < Bookkeeper::Account
   ACCOUNT_TYPE = :revenue
 end

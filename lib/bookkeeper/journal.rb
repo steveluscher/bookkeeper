@@ -1,4 +1,4 @@
-class Journal < ActiveRecord::Base
+class Bookkeeper::Journal < ActiveRecord::Base
   has_many   :postings
   belongs_to :transactable, :polymorphic => true
   belongs_to :batch

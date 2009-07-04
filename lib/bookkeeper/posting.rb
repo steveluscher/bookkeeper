@@ -1,4 +1,4 @@
-class Posting < ActiveRecord::Base
+class Bookkeeper::Posting < ActiveRecord::Base
   belongs_to  :account
   belongs_to  :journal
   belongs_to  :asset_type

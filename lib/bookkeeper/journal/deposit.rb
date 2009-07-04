@@ -1,4 +1,4 @@
-class Journal::Deposit < Journal
+class Bookkeeper::Journal::Deposit < Bookkeeper::Journal
   belongs_to :payable, :polymorphic => true
   
   def payable_type=(sType)
